@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+:root, [data-theme="latte"] {
+  --paper: #EFF1F5;          /* Catppuccin Latte Base - warm creamy frothy paper */
+  --paper-line: #DCE0E8;     /* Soft Latte grid lines */
+  --card-bg: #EFF1F5;        /* Checked notebook paper background */
+  --card-alt: #E6E9EF;       /* Soft latte mantle surface */
+  --ink: #4C4F69;            /* Latte deep espresso text */
+  --ink-soft: #6C6F85;       /* Subtext muted espresso */
+  --border-ink: #4C4F69;     /* Deep espresso border */
+  --shadow-ink: #313244;     /* Crisp shadow */
+  --red: #D20F39;            /* Latte cherry/berry red */
+  --red-hover: #BC0D33;
+  --red-dim: #EA76CB;
+  --amber: #DF8E1D;          /* Warm golden caramel */
+  --emerald: #40A02B;        /* Fresh matcha green */
+}
+
+[data-theme="mocha"] {
+  --paper: #1E1E2E;          /* Catppuccin Mocha Base - deep velvety dark roast */
+  --paper-line: #313244;     /* Subtle mocha grid lines */
+  --card-bg: #181825;        /* Rich dark espresso chocolate surface */
+  --card-alt: #252538;       /* Dark mocha mantle surface */
+  --ink: #CDD6F4;            /* Steamed milk foam text */
+  --ink-soft: #A6ADC8;       /* Soft foam subtext */
+  --border-ink: #585B70;     /* Muted mocha border line */
+  --shadow-ink: #11111B;     /* Deep midnight shadow */
+  --red: #F38BA8;            /* Mocha berry red */
+  --red-hover: #E78284;
+  --red-dim: #6E3B4E;
+  --amber: #FAB387;          /* Warm cinnamon caramel */
+  --emerald: #A6E3A1;        /* Cool matcha mint */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, var(--paper-line) 27px 28px),
+    repeating-linear-gradient(90deg, transparent 0 27px, var(--paper-line) 27px 28px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+.sketch-card {
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, var(--paper-line) 27px 28px),
+    repeating-linear-gradient(90deg, transparent 0 27px, var(--paper-line) 27px 28px);
+  background-size: 28px 28px;
+  border: 2px solid var(--border-ink, var(--ink));
+  box-shadow: 4px 4px 0 var(--shadow-ink, var(--ink));
+}
+
+.font-caveat {
+  font-family: 'Caveat', cursive;
+}
+
+.font-kalam {
+  font-family: 'Kalam', cursive;
+}
+
+.font-space {
+  font-family: 'Space Mono', monospace;
+}
+
+/* User's exact pull game styles */
+.sheet {
+  width: 100%;
+  max-width: 740px;
+  margin: 20px auto;
+  padding: 24px 28px 30px;
+  position: relative;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, var(--paper-line) 27px 28px),
+    repeating-linear-gradient(90deg, transparent 0 27px, var(--paper-line) 27px 28px);
+  background-size: 28px 28px;
+  border: 2px solid var(--border-ink, var(--ink));
+  box-shadow: 4px 4px 0 var(--shadow-ink, var(--ink));
+}
+
+.sheet header {
+  margin-bottom: 6px;
+}
+
+.sheet h1 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 44px;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1;
+  transform: rotate(-1deg);
+}
+
+.sheet .sub {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.stage {
+  position: relative;
+  margin-top: 18px;
+  border: 2px solid var(--border-ink, var(--ink));
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 27px, var(--paper-line) 27px 28px),
+    repeating-linear-gradient(90deg, transparent 0 27px, var(--paper-line) 27px 28px);
+  background-size: 28px 28px;
+  box-shadow: 2px 2px 0 var(--shadow-ink, var(--ink));
+}
+
+.stage canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hud {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.hud .count {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.hud .count b {
+  color: var(--ink);
+}
+
+.status {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  color: var(--ink);
+  min-height: 30px;
+}
+
+.controls {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+button.pull {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--red);
+  border: 2px solid var(--border-ink, var(--ink));
+  box-shadow: 4px 4px 0 var(--shadow-ink, var(--ink));
+  padding: 13px 36px;
+  cursor: pointer;
+  transition: transform 90ms ease, background-color 150ms ease, box-shadow 90ms ease;
+}
+
+button.pull:hover {
+  background: var(--red-hover);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--shadow-ink, var(--ink));
+}
+
+button.pull:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--shadow-ink, var(--ink));
+}
+
+button.pull:disabled {
+  background: var(--red-dim);
+  color: #fff;
+  cursor: default;
+  box-shadow: 3px 3px 0 var(--shadow-ink, var(--ink));
+  transform: none;
+}
+
+button.dl-cleared {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--red);
+  border: 2px solid var(--border-ink, var(--ink));
+  box-shadow: 3px 3px 0 var(--shadow-ink, var(--ink));
+  padding: 11px 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 90ms ease, background-color 150ms ease;
+  margin: 0 auto 14px;
+}
+
+button.dl-cleared:hover {
+  background: var(--red-hover);
+}
+
+button.dl-cleared:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--shadow-ink, var(--ink));
+}
+
+button.dl-cleared.success {
+  background: var(--emerald);
+}
+
+.meter {
+  height: 6px;
+  margin-top: 14px;
+  background: var(--card-alt, #EAE6DB);
+  border: 1.5px solid var(--border-ink, var(--ink));
+  position: relative;
+  overflow: hidden;
+}
+
+.meter i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--red);
+  transition: width 500ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.stage .overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--card-bg, #FFFFFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 600ms ease;
+  padding: 20px;
+}
+
+.stage .overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  text-align: center;
+  max-width: 420px;
+}
+
+.panel h2 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0 0 18px;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.dl {
+  border: 1.5px solid var(--border-ink, var(--ink));
+  padding: 12px 14px;
+  text-align: left;
+  background: var(--card-alt, rgba(255, 255, 255, 0.5));
+  margin: 0 auto 18px;
+}
+
+.dl .row1 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.dl .bar {
+  height: 8px;
+  margin: 8px 0 6px;
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-ink, var(--ink));
+  overflow: hidden;
+  position: relative;
+}
+
+.dl .bar span {
+  position: absolute;
+  top: 0;
+  left: -40%;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    left: 140%;
+  }
+}
+
+.dl .row2 {
+  font-size: 11px;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+}
+
+.again {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid var(--border-ink, var(--ink));
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dl .bar span {
+    animation: none;
+    left: 0;
+    width: 0;
+  }
+}
+
+

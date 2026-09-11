@@ -1,0 +1,6 @@
+{
+  "name": "LooPDfy",
+  "description": "A playful satirical tool that unlocks your PDF from annoying links, then relocks it just to keep you on your toes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
